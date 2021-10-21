@@ -34,7 +34,6 @@ public class StarWarsStepDefinitions {
     @Then("I get response code {int}")
     public void iGetResponseCode(int arg0) {
         assertEquals(arg0, response.getStatusCode());
-        System.out.println(response.path("name"));
         response.getBody().prettyPrint();
     }
 }

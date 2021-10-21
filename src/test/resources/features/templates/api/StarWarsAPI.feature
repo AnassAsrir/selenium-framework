@@ -1,6 +1,6 @@
-@api
+@api @test
 Feature: Star Wars API
-@test
+
   Scenario: search for people
     Given I am using resources "people"
     And searching for id 1
