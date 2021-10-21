@@ -17,7 +17,7 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.ss.util.NumberToTextConverter;
 
 public class ExcelReader {
-    public List<Map<String, String>> getData(String excelFilePath, String sheetName)
+    public static List<Map<String, String>> getData(String excelFilePath, String sheetName)
             throws InvalidFormatException, IOException {
         Sheet sheet = getSheetByName(excelFilePath, sheetName);
         return readSheet(sheet);
@@ -29,7 +29,7 @@ public class ExcelReader {
         return readSheet(sheet);
     }
 
-    private Sheet getSheetByName(String excelFilePath, String sheetName) throws IOException, InvalidFormatException {
+    private static Sheet getSheetByName(String excelFilePath, String sheetName) throws IOException, InvalidFormatException {
         Sheet sheet = getWorkBook(excelFilePath).getSheet(sheetName);
         return sheet;
     }
@@ -39,11 +39,11 @@ public class ExcelReader {
         return sheet;
     }
 
-    private Workbook getWorkBook(String excelFilePath) throws IOException, InvalidFormatException {
+    private static Workbook getWorkBook(String excelFilePath) throws IOException, InvalidFormatException {
         return WorkbookFactory.create(new File(excelFilePath));
     }
 
-    private List<Map<String, String>> readSheet(Sheet sheet) {
+    private static List<Map<String, String>> readSheet(Sheet sheet) {
         Row row;
         int totalRow = sheet.getPhysicalNumberOfRows();
         List<Map<String, String>> excelRows = new ArrayList<Map<String, String>>();
@@ -63,7 +63,7 @@ public class ExcelReader {
         return excelRows;
     }
 
-    private int getHeaderRowNumber(Sheet sheet) {
+    private static int getHeaderRowNumber(Sheet sheet) {
         Row row;
         int totalRow = sheet.getLastRowNum();
         for (int currentRow = 0; currentRow <= totalRow + 1; currentRow++) {
@@ -90,11 +90,11 @@ public class ExcelReader {
         return (-1);
     }
 
-    private Row getRow(Sheet sheet, int rowNumber) {
+    private static Row getRow(Sheet sheet, int rowNumber) {
         return sheet.getRow(rowNumber);
     }
 
-    private LinkedHashMap<String, String> getCellValue(Sheet sheet, Row row, int currentColumn) {
+    private static LinkedHashMap<String, String> getCellValue(Sheet sheet, Row row, int currentColumn) {
         LinkedHashMap<String, String> columnMapdata = new LinkedHashMap<String, String>();
         Cell cell;
         if (row == null) {

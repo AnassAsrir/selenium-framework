@@ -25,3 +25,9 @@ Feature: Authentication form
       | title          | login    | password             | login-message             |
       | wrong username | toto     | SuperSecretPassword! | Your username is invalid! |
       | wrong password | tomsmith | S                    | Your password is invalid! |
+
+  @excel @test
+  Scenario: Authenticate using data from external file
+    When I type loaded login data from external file
+    And I click login button
+    Then the "login-message" should be displayed
