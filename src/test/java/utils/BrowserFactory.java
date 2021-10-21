@@ -17,11 +17,12 @@ public class BrowserFactory {
     private static final HashMap<String, String> configurationMap = PropertiesFile.read("src/test/resources/environment/config.properties");
     static String webBrowserType = configurationMap.get("browser");
     static boolean headless = Boolean.parseBoolean(configurationMap.get("isHeadless"));
-    static String chromeDriver,firefoxDriver,IEDriver;
+    static String chromeDriver,firefoxDriver,IEDriver, osName;
+    static String driversPath = "src/test/resources/drivers/";
+
 
     public static WebDriver getFactoryDriver() {
-        String driversPath = "src/test/resources/drivers/";
-        String osName = System.getProperty("os.name").toLowerCase();
+        osName = System.getProperty("os.name").toLowerCase();
         if (osName.contains("mac")){
             chromeDriver = "macOs_drivers/chromedriver";
             firefoxDriver = "macOs_drivers/geckodriver";
