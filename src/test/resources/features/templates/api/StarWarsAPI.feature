@@ -1,4 +1,4 @@
-@api @test
+@api
 Feature: Star Wars API
 
   Scenario: search for people

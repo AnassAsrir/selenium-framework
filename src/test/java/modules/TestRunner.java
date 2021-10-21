@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
                             "html:target/cucumber-reports"},
         features = {"src/test/resources/features"},
         glue = {"modules","step_definition"},
-        tags = {"@test"}
+        tags = {""}
 )
 
 public class TestRunner {

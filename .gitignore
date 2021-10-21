@@ -3,3 +3,5 @@ target/
 selenium-cucumber-java.iml
 .DS_Store
 .settings/
+.classpath
+.project

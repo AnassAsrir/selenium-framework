@@ -1,4 +1,4 @@
-@ui @test
+@ui 
   Feature: Add Remove Elements
     This test suite verifies that buttons "Add Element" and "Delete" elements work as expected
 
