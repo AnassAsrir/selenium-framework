@@ -6,7 +6,6 @@ import io.restassured.RestAssured;
 import modules.page_objects.AuthenticationFormPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import modules.page_objects.GoogleSearchPage;
 import utils.PropertiesFile;
 
 import java.io.IOException;
@@ -16,7 +15,6 @@ import static utils.BrowserFactory.getFactoryDriver;
 
 public class Hooks {
     public static WebDriver driver;
-    private final GoogleSearchPage googleSearchPageObject = new GoogleSearchPage();
     private final AuthenticationFormPage authenticationPageObject = new AuthenticationFormPage();
     private static final HashMap<String, String> configurationMap = PropertiesFile.read("src/test/resources/environment/config.properties");
     static String webBrowserType = configurationMap.get("browser");
@@ -42,7 +40,6 @@ public class Hooks {
     @Before("@ui")
     public void setUpDriver(){
         driver = getFactoryDriver();
-        PageFactory.initElements(driver, googleSearchPageObject);
         PageFactory.initElements(driver, authenticationPageObject);
     }
 
