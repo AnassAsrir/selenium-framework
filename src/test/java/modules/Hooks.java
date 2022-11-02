@@ -3,7 +3,8 @@ package modules;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.restassured.RestAssured;
-import modules.page_objects.AuthenticationFormPage;
+import modules.page_objects.the_internet.AddRemoveElementsPage;
+import modules.page_objects.the_internet.AuthenticationFormPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import utils.PropertiesFile;
@@ -16,6 +17,7 @@ import static utils.BrowserFactory.getFactoryDriver;
 public class Hooks {
     public static WebDriver driver;
     private final AuthenticationFormPage authenticationPageObject = new AuthenticationFormPage();
+    private final AddRemoveElementsPage addRemoveElementsPageObject = new AddRemoveElementsPage();
     private static final HashMap<String, String> configurationMap = PropertiesFile.read("src/test/resources/environment/config.properties");
     static String webBrowserType = configurationMap.get("browser");
     static String baseUri = configurationMap.get("baseUri");
@@ -41,6 +43,8 @@ public class Hooks {
     public void setUpDriver(){
         driver = getFactoryDriver();
         PageFactory.initElements(driver, authenticationPageObject);
+        PageFactory.initElements(driver, addRemoveElementsPageObject);
+
     }
 
     @After("@ui")

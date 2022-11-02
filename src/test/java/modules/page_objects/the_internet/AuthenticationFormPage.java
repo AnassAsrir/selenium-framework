@@ -1,4 +1,4 @@
-package modules.page_objects;
+package modules.page_objects.the_internet;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
